@@ -1,0 +1,17 @@
+.Boxes{
+  display: flex;
+  flex-direction: row;
+  width: auto;;
+  height:  auto;
+}
+
+.but{
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.Container{
+  display: grid;
+  place-items: center;
+}
