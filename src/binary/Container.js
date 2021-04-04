@@ -12,23 +12,24 @@ function getRndInteger(min, max) {
 function Container(){
 
 
-  const [Boxes_arr, Increament] = useState([getRndInteger(0,100)]);
-  var l = Boxes_arr.length;
+  const [Boxes_arr, Increament] = useState([getRndInteger(-1,100)]);
+  
+  var n = Boxes_arr.length;
 
   function onINcrease(){
 
-    var t = getRndInteger(Boxes_arr[l-1],Boxes_arr[l-1]+10);
+    var t = getRndInteger(Boxes_arr[n-1],Boxes_arr[n-1]+10);
 
     Increament(prev => [...prev,t]);
-    l = Boxes_arr.length;
+    n = Boxes_arr.length;
     // console.log(Boxes_arr);
   }
 
   function onDecrease(){
-    if ( l > 1) {
+    if ( n > 1) {
       Increament(prev => prev.slice(0,-1));
 
-      l = Boxes_arr.length;
+      n = Boxes_arr.length;
     }
     // console.log(Boxes_arr);
   }
@@ -38,7 +39,7 @@ function Container(){
       <div className="Boxes">
         {
           Boxes_arr.map((box,index) =>
-          <Box key={index} num = {box}/>
+          <Box keys={index} key={index} num = {box}/>
         )
         }
       </div>
