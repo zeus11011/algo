@@ -10,10 +10,11 @@ function getRndInteger(min, max) {
 
 
 function Container(){
-
+  var l = 0;
+  var r = 5;
 
   const [Boxes_arr, Increament] = useState([getRndInteger(-1,100)]);
-  
+
   var n = Boxes_arr.length;
 
   function onINcrease(){
@@ -38,8 +39,14 @@ function Container(){
     <div className="Container">
       <div className="Boxes">
         {
-          Boxes_arr.map((box,index) =>
-          <Box keys={index} key={index} num = {box}/>
+          Boxes_arr.map((box,index) =>{
+          if (index == l || index == r) {
+            return(<Box keys={index} key={index} num = {box} className="Boxglow"/>)
+          }
+          else {
+            return(<Box keys={index} key={index} num = {box} className="disabled"/>)
+          }
+        }
         )
         }
       </div>

@@ -1,4 +1,4 @@
-import "./css/Box.css"
+import styles from "./css/Box.css"
 import {useSpring, animated} from 'react-spring';
 
 function Box(prop){
@@ -12,7 +12,7 @@ function Box(prop){
 })
   return(
     // <button className="Box" type="text">{prop.num}<button/>
-    <animated.div style={props} className="Box" onClick={(e) =>console.log(prop)}>{prop.num}</animated.div>
+    <animated.div style={props} className={'Box ' + prop.className} onClick={(e) =>console.log(prop)}>{prop.num}</animated.div>
   )
 }
 
